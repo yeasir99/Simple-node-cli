@@ -16,5 +16,6 @@
   "bugs": {
     "url": "https://github.com/yeasir99/Simple-node-cli/issues"
   },
-  "homepage": "https://github.com/yeasir99/Simple-node-cli#readme"
+  "homepage": "https://github.com/yeasir99/Simple-node-cli#readme",
+  "type": "module"
 }
