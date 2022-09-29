@@ -1,20 +1,18 @@
 import inquirer from 'inquirer';
+import fs from 'node:fs/promises';
 
 async function askQus() {
-  const answer = await inquirer.prompt([
+  const bufferData = await fs.readFile('./data.json');
+  const content = JSON.parse(bufferData.toString());
+  const { question, answer } = content[0];
+  const ans = await inquirer.prompt([
     {
       type: 'input',
-      name: 'name',
-      message: 'What is your name?',
-    },
-    {
-      type: 'list',
-      name: 'live',
-      message: 'Where do you live?',
-      choices: ['Dhaka', 'Tangail', 'Madhupur', 'Ghatail'],
+      name: 'pyramids',
+      message: question,
     },
   ]);
-  console.log(answer.name);
-  console.log(answer.live);
+  if (ans.pyramids === answer) console.log('thats right');
+  else console.log('better luck next time');
 }
 askQus();
